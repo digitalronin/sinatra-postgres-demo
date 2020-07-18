@@ -1,0 +1,44 @@
+<table border="1">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>First</th>
+      <th>Last</th>
+      <th>Password</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+<% users.each do |u| %>
+  <tr>
+    <td><%= u['id'] %></td>
+    <td><%= u['first_name'] %></td>
+    <td><%= u['last_name'] %></td>
+    <td><%= u['password'] %></td>
+    <td><%= u['email'] %></td>
+  </tr>
+<% end %>
+</table>
+
+<div>
+  <form action="/users" method="post">
+    <p>
+      First:<br />
+      <input type="text" name="first_name">
+    </p>
+    <p>
+      Last: <br />
+      <input type="text" name="last_name">
+    </p>
+    <p>
+      Password: <br />
+      <input type="password" name="password">
+    </p>
+    <p>
+      Email: <br />
+      <input type="text" name="email">
+    </p>
+    <p>
+      <input type="submit" value="Add User" />
+    </p>
+  </form>
+</div>
