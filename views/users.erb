@@ -9,22 +9,26 @@
       <th>&nbsp;</th>
     </tr>
   </thead>
-<% users.each do |u| %>
-  <tr>
-    <td><%= u['id'] %></td>
-    <td><%= u['first_name'] %></td>
-    <td><%= u['last_name'] %></td>
-    <td><%= u['password'] %></td>
-    <td><%= u['email'] %></td>
-    <td>
-      <form action="/delete_user" method="post">
-        <input type="hidden" name="id" value="<%= u['id'] %>" />
-        <input type="submit" value="Delete" />
-      </form>
-    </td>
-  </tr>
-<% end %>
+  <tbody>
+    <% users.each do |u| %>
+      <tr>
+        <td><%= u['id'] %></td>
+        <td><%= u['first_name'] %></td>
+        <td><%= u['last_name'] %></td>
+        <td><%= u['password'] %></td>
+        <td><%= u['email'] %></td>
+        <td>
+          <form action="/delete_user" method="post">
+            <input type="hidden" name="id" value="<%= u['id'] %>" />
+            <input type="submit" value="Delete" />
+          </form>
+        </td>
+      </tr>
+    <% end %>
+  <tbody>
 </table>
+
+<hr />
 
 <div>
   <form action="/users" method="post">
