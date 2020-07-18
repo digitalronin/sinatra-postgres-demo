@@ -2,11 +2,7 @@
 # a sample database.
 # NB: You will need to run `heroku login` before this.
 setup:
-	heroku create
-	heroku addons:create heroku-postgresql:hobby-dev
-	git push heroku master
-	heroku run make setup-db
-	heroku open
+	bin/setup.sh
 
 # Create tables and populate with CSV data
 # Run this using `heroku run make setup-db` - it needs to execute on Heroku, not locally
