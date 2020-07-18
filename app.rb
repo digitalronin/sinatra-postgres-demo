@@ -17,11 +17,20 @@ def add_user(u)
   connection.exec_params(addsql, [ u["first_name"], u["last_name"], u["password"], u["email"] ])
 end
 
+def delete_user(id)
+  connection.exec_params("DELETE FROM users WHERE id=$1", [ id ])
+end
+
 get "/users" do
   erb :users, locals: { users: get_users }
 end
 
 post "/users" do
   add_user(params)
+  redirect "/users"
+end
+
+post "/delete_user" do
+  delete_user(params["id"])
   redirect "/users"
 end

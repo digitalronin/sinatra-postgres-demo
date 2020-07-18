@@ -6,6 +6,7 @@
       <th>Last</th>
       <th>Password</th>
       <th>Email</th>
+      <th>&nbsp;</th>
     </tr>
   </thead>
 <% users.each do |u| %>
@@ -15,6 +16,12 @@
     <td><%= u['last_name'] %></td>
     <td><%= u['password'] %></td>
     <td><%= u['email'] %></td>
+    <td>
+      <form action="/delete_user" method="post">
+        <input type="hidden" name="id" value="<%= u['id'] %>" />
+        <input type="submit" value="Delete" />
+      </form>
+    </td>
   </tr>
 <% end %>
 </table>
