@@ -21,6 +21,10 @@ def delete_user(id)
   connection.exec_params("DELETE FROM users WHERE id=$1", [ id ])
 end
 
+get "/" do
+  redirect "/users"
+end
+
 get "/users" do
   erb :users, locals: { users: get_users }
 end
